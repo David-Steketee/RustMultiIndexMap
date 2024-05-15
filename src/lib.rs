@@ -87,23 +87,6 @@ mod tests {
         }
     }
 
-    //fn add_and_remove_n_comparison(n: u32) {
-    //    let mut slab = slab::Slab::<MyStruct>::new();
-    //    let mut map1 = std::collections::HashMap::<i32, usize>::new();
-    //    let mut map2 = std::collections::HashMap::<String, usize>::new();
-    //
-    //    for x in 1..n {
-    //        let idx = slab.insert(MyStruct{val: x, ref1: x as i32, ref2: x.to_string()});
-    //        map1.insert(x as i32, idx);
-    //        map2.insert(x.to_string(), idx);
-    //    }
-    //    for x in 1..n {
-    //        map2.remove(&x.to_string());
-    //        let idx = map1.remove(&(x as i32)).unwrap();
-    //        slab.remove(idx);
-    //    }
-    //}
-
     fn add_and_get_n(n: u32) {
         let mut default = MultiIndexMyStructMap::new();
         for x in 1..n {
@@ -134,10 +117,10 @@ mod tests {
     fn bench_add_and_remove_10_4(b: &mut Bencher) {
         b.iter(|| add_and_remove_n(test::black_box(10000)));
     }
-    // #[bench]
-    // fn bench_add_and_remove_10_5(b: &mut Bencher) {
-    //     b.iter(|| add_and_remove_n(test::black_box(100000)));
-    // }
+    #[bench]
+    fn bench_add_and_remove_10_5(b: &mut Bencher) {
+        b.iter(|| add_and_remove_n(test::black_box(100000)));
+    }
 
     #[bench]
     fn bench_add_and_remove_10_3_other_crate(b: &mut Bencher) {
@@ -147,10 +130,10 @@ mod tests {
     fn bench_add_and_remove_10_4_other_crate(b: &mut Bencher) {
         b.iter(|| add_and_remove_n_other_crate(test::black_box(10000)));
     }
-    // #[bench]
-    // fn bench_add_and_remove_10_5_other_crate(b: &mut Bencher) {
-    //     b.iter(|| add_and_remove_n_other_crate(test::black_box(100000)));
-    // }
+    #[bench]
+    fn bench_add_and_remove_10_5_other_crate(b: &mut Bencher) {
+        b.iter(|| add_and_remove_n_other_crate(test::black_box(100000)));
+    }
 
     #[bench]
     fn bench_add_and_get_10_3(b: &mut Bencher) {
@@ -177,9 +160,4 @@ mod tests {
     fn bench_add_and_get_10_5_other_crate(b: &mut Bencher) {
         b.iter(|| add_and_get_n_other_crate(test::black_box(100000)));
     }
-
-    // #[bench]
-    // fn bench_add_and_remove_n_comparison(b: &mut Bencher) {
-    //    b.iter(|| add_and_remove_n_comparison(test::black_box(1000)));
-    // }
 }
