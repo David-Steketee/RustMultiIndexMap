@@ -1,20 +1,16 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This was a short week long project to develop a multi-index map in rust
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+The idea was to implement something similar to the c++ multiindex map from Boost that I was already familiar with https://www.boost.org/doc/libs/1_78_0/libs/multi_index/doc/index.html.
+
+I also discovered this rust crate that implement multiindex maps in the same way and decided to follow a very similar interface https://lib.rs/crates/multi_index_map.
+
+This multiindex map is far from complete and is intended solely as a coding exercise. The rust crate above uses unsafe methods for at least mutations. My code is entirely written in safe rust (although incomplete and doesn't even support mutations for keys anyway)
+My library scales as the same rate as the rust library for insertions, deletions and retrievals but is approximately 2x slower
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+you will need to install and use the rust nightly built at the time of writing to run benchmark tests
+see installation instructions here https://doc.rust-lang.org/book/appendix-07-nightly-rust.html
 
 # Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+This was intended as a coding exercise and very minor demonstration of coding competency for job applications. Feel free to take this code and do what you wish. I might come back and work on this more if I get the time who knows.
